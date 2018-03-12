@@ -3,9 +3,12 @@ package login_and_register;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedNativeQuery;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
+@NamedNativeQuery(name="UserDetails.byEmail",query="Select * From UserInformation where email=?",resultClass=User.class)
 @Table(name="UserInformation")
 public class User {
    

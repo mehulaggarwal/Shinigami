@@ -261,7 +261,7 @@ hr {
 	<div id="id01" class="modal animate">
 		<span onclick="document.getElementById('id01').style.display='none'"
 			class="close" title="Close Modal">&times;</span>
-		<form class="modal-content " action="submitadmissionForm.html"
+		<form class="modal-content " action="register.html"
 			method="post">
 			<div class="container">
 				<h1>Sign Up</h1>
