@@ -32,10 +32,7 @@ public class Controller {
 	{
 	  User user2=new User();
 	  user2=userService.get(LoginUser.getEmail());
-	  System.out.println("hello");
-	  /*System.out.println(user2.getPassword());
-	  System.out.println(user2.getEmail());
-	  System.out.println(User1.getPassword());*/
+	  session.setAttribute("user", user2);
 	  if(user2==null)
 	  {
 		  return new ModelAndView("LoginUnsuccess");
@@ -49,4 +46,5 @@ public class Controller {
 	  
 	return new ModelAndView("LoginSuccess");
 	}
+	
 }

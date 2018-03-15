@@ -8,12 +8,12 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
-@NamedNativeQuery(name="UserDetails.byEmail",query="Select * From UserInformation where email=?",resultClass=User.class)
-@Table(name="UserInformation")
+@NamedNativeQuery(name="UserDetails.byEmail",query="Select * From User_Information where email=?",resultClass=User.class)
+@Table(name="User_Information")
 public class User {
    
 	@Id @GeneratedValue
-	private int id;
+	private int user_id;
 	
 	private String userName;
 	
@@ -36,7 +36,6 @@ public class User {
 	public String getPassword() {
 		return password;
 	}
-
 	public void setPassword(String password) {
 		this.password = password;
 	}

@@ -1,6 +1,6 @@
-login_and_register\UserService.class
 login_and_register\Controller.class
-login_and_register\UserDao.class
 login_and_register\UserDaoImpl.class
 login_and_register\User.class
 login_and_register\UserServiceImpl.class
+login_and_register\UserService.class
+login_and_register\UserDao.class

@@ -10,6 +10,7 @@
    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
 	<context:component-scan base-package="login_and_register" />
+	<context:component-scan base-package="Create_Channel" />
 
 	<mvc:resources location="/WEB-INF/" mapping="/resources/**" />
 	<mvc:resources mapping="/images/**" location="/images/" />
@@ -35,6 +36,7 @@
 		<property name="annotatedClasses">
 			<list>
 				<value>login_and_register.User</value>
+				<value>Create_Channel.Channel</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
