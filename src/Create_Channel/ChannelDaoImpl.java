@@ -1,7 +1,9 @@
 package Create_Channel;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,6 +51,20 @@ public class ChannelDaoImpl implements ChannelDao{
 	@Override
 	public List<Channel> getAll() {
 		return getSession().createCriteria(Channel.class).list();
+	}
+
+	@Override
+	public List<String> getChannelNames(int user_id) {
+		Query query=getSession().getNamedQuery("ChannelNames");
+		query.setInteger(0,user_id);
+		List<Channel> channels=(List<Channel>)query.list();
+		List<String> list=new ArrayList<String>();
+		for(Channel channel:channels)
+		{
+			String channelname=channel.getChannel_name();
+			list.add(channelname);
+		}
+		return list;
 	}
 
 }

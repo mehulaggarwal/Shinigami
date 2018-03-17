@@ -15,4 +15,6 @@ public interface ChannelService {
 	public List<Channel> getAll();
 
 	public Channel edit(String channel_name);
+	
+	public List<String> getChannelNames(int user_id);
 }

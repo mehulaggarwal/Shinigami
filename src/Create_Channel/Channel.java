@@ -8,23 +8,20 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.NamedNativeQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Parameter;
 
 @Entity
+@NamedNativeQuery(name="ChannelNames",query="Select * from Create_Channel where user_id=?",resultClass=Channel.class)
 @Table(name="Create_Channel")
 public class Channel {
 
- 	/*@GeneratedValue(generator="newGenerator")
-	@GenericGenerator(name="newGenerator",strategy="foreign",parameters={@Parameter(value="user",name="property")})
-	private int user_id;*/
 
 	@Id @GeneratedValue
 	private int channel_id;
-
+	
 	private String channel_name;
    
 	@OneToOne(cascade=CascadeType.ALL)
@@ -38,14 +35,6 @@ public class Channel {
 	public void setChannel_name(String channel_name) {
 		this.channel_name = channel_name;
 	}
-
-	/*public synchronized int getUser_id() {
-		return user_id;
-	}
-
-	public synchronized void setUser_id(int user_id) {
-		this.user_id = user_id;
-	}*/
 
 	public synchronized int getChannel_id() {
 		return channel_id;
