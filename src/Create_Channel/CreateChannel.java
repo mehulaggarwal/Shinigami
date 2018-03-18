@@ -26,19 +26,9 @@ public class CreateChannel {
 	public ModelAndView createchannel(@ModelAttribute("Channel1") Channel Channel1, HttpSession session,HttpServletRequest request) {
 		Channel1.setUser((User) session.getAttribute("user"));
 		User user1 = new User();
-		user1 = (User) session.getAttribute("user");
-		//System.out.println(user1.getUser_id());
-		List<String> list=new ArrayList<String>();
-		list=channelService.getChannelNames(user1.getUser_id());
-		/*System.out.println("hello");
-		int i;
-		for(i=0;i<list.size();i++)
-		{
-			System.out.println(list.get(i));
-		}*/
-		
 		channelService.create(Channel1);
 		ModelAndView model = new ModelAndView("Check");
+		
 		return model;
 	}
 }

@@ -11,7 +11,7 @@
 
 	<context:component-scan base-package="login_and_register" />
 	<context:component-scan base-package="Create_Channel" />
-	<context:component-scan base-package="Notification"/>
+	<context:component-scan base-package="Post_Notification"/>
 
 	<mvc:resources location="/WEB-INF/" mapping="/resources/**" />
 	<mvc:resources mapping="/images/**" location="/images/" />

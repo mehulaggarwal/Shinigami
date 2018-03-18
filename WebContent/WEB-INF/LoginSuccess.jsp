@@ -158,7 +158,16 @@ hr {
 			</div>
 		</form>
 	</div>
+    <h3>Channel names: </h3>
+   <c:if test="${not empty lists}">
 
+		<ul>
+			<c:forEach var="listValue" items="${lists}">
+				<li><a href="/SubscriberModel/PostMessege/${listValue}"><mark>${listValue}</mark></a></li>
+			</c:forEach>
+		</ul>
+
+	</c:if>
 	<script>
 		// Get the modal
 		var modal = document.getElementById('id01');
