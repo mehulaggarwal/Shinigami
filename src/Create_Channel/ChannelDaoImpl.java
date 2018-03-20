@@ -14,6 +14,7 @@ public class ChannelDaoImpl implements ChannelDao{
 
 	@Autowired
     SessionFactory sessionFactory;
+	private boolean add;
 	
 	protected Session getSession()
 	{
@@ -54,17 +55,11 @@ public class ChannelDaoImpl implements ChannelDao{
 	}
 
 	@Override
-	public List<String> getChannelNames(int user_id) {
+	public List<Channel> getChannelNames(int user_id) {
 		Query query=getSession().getNamedQuery("ChannelNames");
 		query.setInteger(0,user_id);
 		List<Channel> channels=(List<Channel>)query.list();
-		List<String> list=new ArrayList<String>();
-		for(Channel channel:channels)
-		{
-			String channelname=channel.getChannel_name();
-			list.add(channelname);
-		}
-		return list;
+		return channels;
 	}
 
 }

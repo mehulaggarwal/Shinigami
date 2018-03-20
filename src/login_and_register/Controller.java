@@ -52,7 +52,7 @@ public class Controller {
 		if (!s1.equals(s2)) {
 			return new ModelAndView("LoginUnsuccess") ;
 		}
-		List<String> list = new ArrayList<String>();
+		List<Channel> list = new ArrayList<Channel>();
 		ModelAndView model=new ModelAndView("LoginSuccess");
 		list = channelService.getChannelNames(user2.getUser_id());
 		model.addObject("lists", list);

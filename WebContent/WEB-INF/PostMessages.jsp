@@ -1,19 +1,6 @@
-<%@page import="java.util.List"%>
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ page import="java.util.ArrayList"%>
-<!DOCTYPE html>
- <%--  <%
-  List<String> list=(ArrayList<String>)request.getAttribute("lists");
-  for(int i=0;i<list.size();i++)
-  {
-	  out.println(list.get(i));
-  }
-  %> --%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <style>
 body {
@@ -101,10 +88,6 @@ hr {
 	margin-bottom: 25px;
 }
 
-.pos {
-	position: absolute;
-	left: 80%;
-}
 /* The Close Button (x) */
 .close {
 	position: absolute;
@@ -128,63 +111,49 @@ hr {
 }
 
 /* Change styles for cancel button and signup button on extra small screens */
-@media screen and (max-width: 300px) {
+ 
 	.cancelbtn, .signupbtn {
 		width: 100%;
-	}
+        float: right;
+	    margin-right: 83px;
 }
-.down{
+
+.upper {
 	position: absolute;
-	top: 15%;
+	left: 50%;
+	top: 10%;
+	transform: translate(-50%, 0%);
+}
+.center {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+.middle
+{
+	position: absolute;
+	left:50%;
 }
 </style>
 <body>
-
+	<h1 class="upper">${msg}</h1>
 	<button onclick="document.getElementById('id01').style.display='block'"
-		class="pos" style="width: auto;">Create Channel</button>
+		class="center" style="width: auto;">Post Message</button>
 
 	<div id="id01" class="modal">
 		<span onclick="document.getElementById('id01').style.display='none'"
 			class="close" title="Close Modal">&times;</span>
-		<form class="modal-content" action="createchannel.html" method="post">
+		<form class="modal-content" action="message.html" method="post">
 			<div class="container">
-				<h1>Create Channel</h1>
+				<h1 align="center">Post Message</h1>
 				<hr>
-				<label><b>Channel name</b></label> <input type="text"
-					placeholder="Enter Channel Name" name="channel_name" required>
-
+                  <textarea rows="20" cols="150" placeholder="Enter Message" name="message"></textarea>
 				<div class="clearfix">
-					<button type="button"
-						onclick="document.getElementById('id01').style.display='none'"
-						class="cancelbtn">Cancel</button>
-					<button type="submit" class="signupbtn">Create</button>
+					<button type="submit"  style="width: auto;" class="signupbtn">Post</button>
 				</div>
 			</div>
 		</form>
 	</div>
-	<div class="down">
-    <h3>Channels created by you: </h3>
-   <c:if test="${not empty lists}">
-
-		<ul>
-			<c:forEach var="listValue" items="${lists}">
-				<li><a href="/SubscriberModel/PostMessage/${listValue.channel_name}/${listValue.channel_id}.html"><mark>${listValue.channel_name}</mark></a></li>
-			</c:forEach>
-		</ul>
-
-	</c:if>
-	</div>
-	<script>
-		// Get the modal
-		var modal = document.getElementById('id01');
-
-		// When the user clicks anywhere outside of the modal, close it
-		window.onclick = function(event) {
-			if (event.target == modal) {
-				modal.style.display = "none";
-			}
-		}
-	</script>
-	
 </body>
 </html>

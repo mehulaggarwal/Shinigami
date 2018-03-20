@@ -47,7 +47,7 @@ public class ChannelServiceImpl implements ChannelService {
 	}
 
 	@Override
-	public List<String> getChannelNames(int user_id) {
+	public List<Channel> getChannelNames(int user_id) {
 		return channelDao.getChannelNames(user_id);
 	}
 
