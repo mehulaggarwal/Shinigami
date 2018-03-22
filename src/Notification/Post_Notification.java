@@ -1,5 +1,8 @@
 package Notification;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.hibernate.Session;
@@ -13,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import Create_Channel.Channel;
+import Create_Channel.ChannelService;
 import login_and_register.User;
 
 @Controller
@@ -20,6 +24,9 @@ public class Post_Notification {
     
 	@Autowired
 	NotificationService notificationService;
+	
+	@Autowired
+	ChannelService channelService;
 	
 	@RequestMapping(value="/PostMessage/{channelName}/{channelid}.html",method=RequestMethod.GET)
 	public ModelAndView PostMessage(@PathVariable("channelName")String  channelName,@PathVariable("channelid")int  channelid,HttpSession session)
@@ -47,6 +54,15 @@ public class Post_Notification {
 		post.setUser((User) session.getAttribute("user"));
 		notificationService.create(post);
 		ModelAndView model=new ModelAndView("posted");
+		return model;
+	}
+	@RequestMapping(value="/showlist.html",method=RequestMethod.POST)
+	public ModelAndView getAllChannels(){
+		
+		ModelAndView model=new ModelAndView("channellist");
+		List<Channel> list=new ArrayList<Channel>();
+		list=channelService.getAll();
+		model.addObject("lists", list);
 		return model;
 	}
 }

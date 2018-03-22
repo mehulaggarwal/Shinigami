@@ -12,6 +12,7 @@
 	<context:component-scan base-package="login_and_register" />
 	<context:component-scan base-package="Create_Channel" />
 	<context:component-scan base-package="Notification"/>
+	<context:component-scan base-package="Subscribe"/>
 
 	<mvc:resources location="/WEB-INF/" mapping="/resources/**" />
 	<mvc:resources mapping="/images/**" location="/images/" />
@@ -39,6 +40,7 @@
 				<value>login_and_register.User</value>
 				<value>Create_Channel.Channel</value>
 				<value>Notification.PostMessage</value>
+				<value>Subscribe.Subscriber</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">

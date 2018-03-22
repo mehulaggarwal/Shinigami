@@ -7,15 +7,66 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="java.util.ArrayList"%>
 <!DOCTYPE html>
- <%--  <%
-  List<String> list=(ArrayList<String>)request.getAttribute("lists");
-  for(int i=0;i<list.size();i++)
-  {
-	  out.println(list.get(i));
-  }
-  %> --%>
 <html>
 <style>
+.dropbtn {
+	background-color: #4CAF50;
+	color: white;
+	padding: 16px;
+	font-size: 16px;
+	border: none;
+	cursor: pointer;
+}
+
+.dropdown {
+	position: absolute;
+	display: block;
+	left: 50%;
+	top: 20%;
+	transform: translate(-50%, -20%);
+}
+.dropdown1 {
+	position: absolute;
+	display: block;
+	left: 50%;
+	top: 40%;
+	transform: translate(-50%, -40%);
+	z-index: -1;
+}
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #f9f9f9;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	z-index: 1;
+}
+
+.dropdown-content a {
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+}
+
+.dropdown-content a:hover {
+	background-color: #f1f1f1
+}
+
+.dropdown:hover .dropdown-content {
+	display: block;
+}
+.dropdown1:hover .dropdown-content {
+	display: block;
+}
+
+.dropdown:hover .dropbtn {
+	background-color: #3e8e41;
+}
+.dropdown1:hover .dropbtn {
+	background-color: #3e8e41;
+}
+
 body {
 	font-family: Arial, Helvetica, sans-serif;
 }
@@ -59,6 +110,11 @@ button:hover {
 .cancelbtn {
 	padding: 14px 20px;
 	background-color: #f44336;
+}
+
+/* Remove the highlight */
+.dlink {
+	text-decoration: none;
 }
 
 /* Float cancel and signup buttons and add an equal width */
@@ -105,6 +161,20 @@ hr {
 	position: absolute;
 	left: 80%;
 }
+
+.cenup {
+	position: absolute;
+	left: 50%;
+	top: 30%;
+	width: auto;
+	font-size: 18px;
+	transform: translate(-50%, -30%);
+}
+
+.pos2 {
+	position: absolute;
+	left: 65%;
+}
 /* The Close Button (x) */
 .close {
 	position: absolute;
@@ -133,13 +203,18 @@ hr {
 		width: 100%;
 	}
 }
-.down{
+
+.down {
 	position: absolute;
 	top: 15%;
 }
 </style>
 <body>
 
+	<form action="showlist.html" method="post">
+		<button style="width: auto;" type="submit" class="pos2">Subscribe
+			a Channel</button>
+	</form>
 	<button onclick="document.getElementById('id01').style.display='block'"
 		class="pos" style="width: auto;">Create Channel</button>
 
@@ -162,17 +237,52 @@ hr {
 			</div>
 		</form>
 	</div>
-	<div class="down">
-    <h3>Channels created by you: </h3>
-   <c:if test="${not empty lists}">
+	<%-- <div class="down">
+		<h3>Channels created by you:</h3>
+		<c:if test="${not empty lists}">
 
-		<ul>
-			<c:forEach var="listValue" items="${lists}">
-				<li><a href="/SubscriberModel/PostMessage/${listValue.channel_name}/${listValue.channel_id}.html"><mark>${listValue.channel_name}</mark></a></li>
-			</c:forEach>
-		</ul>
+			<ul>
+				<c:forEach var="listValue" items="${lists}">
+					<li><a
+						href="/SubscriberModel/PostMessage/${listValue.channel_name}/${listValue.channel_id}.html">${listValue.channel_name}</a></li>
+				</c:forEach>
+			</ul>
 
-	</c:if>
+		</c:if>
+	</div> --%>
+	<div class="dropdown">
+		<button class="dropbtn" class="cenup">Channel Created by you</button>
+		<div class="dropdown-content">
+			<c:if test="${not empty lists}">
+
+				<c:forEach var="listValue" items="${lists}">
+					<a
+						href="/SubscriberModel/PostMessage/${listValue.channel_name}/${listValue.channel_id}.html"
+						class='dlink'>${listValue.channel_name}</a>
+
+				</c:forEach>
+
+			</c:if>
+
+		</div>
+
+	</div>
+	<div class="dropdown1">
+		<button class="dropbtn" class="cenup">Channel Subscribed by you</button>
+		<div class="dropdown-content">
+			<c:if test="${not empty lists1}">
+
+				<c:forEach var="listValue" items="${lists1}">
+					<a
+						href="/SubscriberModel/showMessages/${listValue.channel_name}/${listValue.channel_id}.html"
+						class='dlink'>${listValue.channel_name}</a>
+
+				</c:forEach>
+
+			</c:if>
+
+		</div>
+
 	</div>
 	<script>
 		// Get the modal
@@ -185,6 +295,6 @@ hr {
 			}
 		}
 	</script>
-	
+
 </body>
 </html>

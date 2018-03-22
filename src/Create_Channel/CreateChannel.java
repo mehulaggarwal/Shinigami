@@ -5,6 +5,7 @@ import login_and_register.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.enterprise.inject.Model;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -28,7 +29,7 @@ public class CreateChannel {
 		User user1 = new User();
 		channelService.create(Channel1);
 		ModelAndView model = new ModelAndView("Check");
-		
 		return model;
 	}
+	
 }

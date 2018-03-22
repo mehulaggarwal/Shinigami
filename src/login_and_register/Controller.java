@@ -1,6 +1,7 @@
 package login_and_register;
 
 import Create_Channel.*;
+import Subscribe.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +24,10 @@ public class Controller {
 
 	@Autowired
 	ChannelService channelService;
-
+	
+     @Autowired
+     SubscriberService subscriberService;
+	
 	@RequestMapping(value = "/pubsub.html", method = RequestMethod.GET)
 	public ModelAndView getFirstPage() {
 
@@ -56,8 +60,13 @@ public class Controller {
 		ModelAndView model=new ModelAndView("LoginSuccess");
 		list = channelService.getChannelNames(user2.getUser_id());
 		model.addObject("lists", list);
-		System.out.println("hello");
+		
+		List<Subscriber> list1=new ArrayList<Subscriber>();
+		list1=subscriberService.getSubscribedChannels(user2.getUser_id());
+		model.addObject("lists1",list1);
 		return model;
+		
+		
 	}
 
 }
