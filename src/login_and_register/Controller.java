@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +39,7 @@ public class Controller {
 	@RequestMapping(value = "/register.html", method = RequestMethod.POST)
 	public ModelAndView Register(@ModelAttribute("User1") User User1, HttpSession session) {
 		userService.create(User1);
-		ModelAndView model = new ModelAndView("Check");
+		ModelAndView model = new ModelAndView("LoginSuccess");
 		return model;
 	}
 
@@ -67,6 +68,11 @@ public class Controller {
 		return model;
 		
 		
+	}
+	@RequestMapping(value="/logout.html",method=RequestMethod.GET)
+	public ModelAndView logout(HttpServletRequest request,HttpServletResponse response){
+		request.getSession().invalidate();
+	    return new ModelAndView("redirect:/pubsub.html");
 	}
 
 }

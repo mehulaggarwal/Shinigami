@@ -1,5 +1,9 @@
 package Notification;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +35,19 @@ public class NotificationDaoImpl implements NotificationDao{
 	public void delete(String message) {
 		getSession().delete(message);
 		
+	}
+
+	@Override
+	public List<String> getMessages(int channel_id) {
+		Query query=getSession().getNamedQuery("getMessages");
+		query.setInteger(0, channel_id);
+		List<PostMessage> messages=(List<PostMessage>)query.list();
+		List<String> list=new ArrayList<String>();
+		for(PostMessage message:messages)
+		{
+		  list.add(message.getMessage());	
+		}
+		return list;
 	}
 
 	

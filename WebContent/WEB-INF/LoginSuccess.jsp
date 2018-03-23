@@ -208,6 +208,11 @@ hr {
 	position: absolute;
 	top: 15%;
 }
+.logout{
+ position: absolute;
+ top:90%;
+ left:90%;
+}
 </style>
 <body>
 
@@ -284,6 +289,9 @@ hr {
 		</div>
 
 	</div>
+	
+	<a class="logout" href="/SubscriberModel/logout.html">Log out</a>
+	
 	<script>
 		// Get the modal
 		var modal = document.getElementById('id01');

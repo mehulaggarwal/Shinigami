@@ -8,11 +8,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.NamedNativeQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import org.hibernate.annotations.Cascade;
 
 @Entity
+@NamedNativeQuery(name="getMessages",query="Select * from Post_Message where channel_id=? order by Notification_id DESC",resultClass=PostMessage.class)
 @Table(name = "Post_Message")
 public class PostMessage {
 	

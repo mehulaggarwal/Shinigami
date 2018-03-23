@@ -41,6 +41,11 @@ font-size: 40px;
 .font1{
  font-size: 100px;
 }
+.logout{
+ position: absolute;
+ top:90%;
+ left:90%;
+}
 </style>
 <body>
 	<h1 class="middle1" class="font1">Click on the channel to subscribe</h1>
@@ -58,5 +63,6 @@ font-size: 40px;
 
 		</c:if>
 	</div>
+	<a class="logout" href="/SubscriberModel/logout.html">Log out</a>
 </body>
 </html>
