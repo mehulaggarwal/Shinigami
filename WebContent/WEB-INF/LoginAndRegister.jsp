@@ -13,6 +13,9 @@ body {
 * {
 	box-sizing: border-box;
 }
+body{
+  background-color:#8080805c;
+}
 /* Full-width input fields */
 /* input[type=text], input[type=password] {
 	width: 100%;
@@ -98,6 +101,7 @@ button {
 	cursor: pointer;
 	width: 100%;
 	opacity: 0.9;
+	border-radius: 12px;
 }
 
 .center {

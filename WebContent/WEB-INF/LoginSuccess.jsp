@@ -29,7 +29,7 @@
 	position: absolute;
 	display: block;
 	left: 50%;
-	top: 40%;
+	top: 45%;
 	transform: translate(-50%, -40%);
 	z-index: -1;
 }
