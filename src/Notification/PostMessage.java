@@ -12,9 +12,9 @@ import javax.persistence.NamedNativeQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import org.hibernate.annotations.Cascade;
-
+import deletemessages.*;
 @Entity
-@NamedNativeQuery(name="getMessages",query="Select * from Post_Message where channel_id=? order by Notification_id DESC",resultClass=PostMessage.class)
+@NamedNativeQuery(name="getMessages",query="select * from post_message where notification_id IN  (select notification_id from post_message left join delete_messages using(Notification_id) where delete_messages.notification_id is NULL order by notification_id desc) and channel_id=?",resultClass=PostMessage.class)
 @Table(name = "Post_Message")
 public class PostMessage {
 	

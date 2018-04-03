@@ -13,6 +13,7 @@
 	<context:component-scan base-package="Create_Channel" />
 	<context:component-scan base-package="Notification"/>
 	<context:component-scan base-package="Subscribe"/>
+	<context:component-scan base-package="deletemessages"/>
 
 	<mvc:resources location="/WEB-INF/" mapping="/resources/**" />
 	<mvc:resources mapping="/images/**" location="/images/" />
@@ -41,6 +42,7 @@
 				<value>Create_Channel.Channel</value>
 				<value>Notification.PostMessage</value>
 				<value>Subscribe.Subscriber</value>
+				<value>deletemessages.Delete</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">

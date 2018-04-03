@@ -2,6 +2,8 @@ package Notification;
 
 import java.util.List;
 
+import Subscribe.MsgNotifiId;
+
 public interface NotificationService {
 
 	public void create(PostMessage notifi);
@@ -10,6 +12,6 @@ public interface NotificationService {
 
 	public void delete(String message);
 	
-	public List<String> getMessages(int channel_id);
+	public List<PostMessage> getMessages(int channel_id);
 
 }

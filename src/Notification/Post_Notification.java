@@ -18,7 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 import Create_Channel.Channel;
 import Create_Channel.ChannelService;
 import login_and_register.User;
-
+import Subscribe.*;
 @Controller
 public class Post_Notification {
     

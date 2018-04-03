@@ -7,8 +7,10 @@ G:\eclipse worksopce\SubscriberModel\src\Notification\Post_Notification.java
 G:\eclipse worksopce\SubscriberModel\src\Create_Channel\ChannelService.java
 G:\eclipse worksopce\SubscriberModel\src\Subscribe\SubscriberServiceImpl.java
 G:\eclipse worksopce\SubscriberModel\src\login_and_register\UserDao.java
+G:\eclipse worksopce\SubscriberModel\src\deletemessages\deletemessage.java
 G:\eclipse worksopce\SubscriberModel\src\Subscribe\SubscribeChannel.java
 G:\eclipse worksopce\SubscriberModel\src\login_and_register\Controller.java
+G:\eclipse worksopce\SubscriberModel\src\Subscribe\MsgNotifiId.java
 G:\eclipse worksopce\SubscriberModel\src\Notification\NotificationDao.java
 G:\eclipse worksopce\SubscriberModel\src\Notification\NotificationService.java
 G:\eclipse worksopce\SubscriberModel\src\Create_Channel\Channel.java

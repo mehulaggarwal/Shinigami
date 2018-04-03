@@ -50,8 +50,8 @@
 		<c:if test="${not empty messages}">
 
 			<c:forEach var="listValue" items="${messages}">
-				<p class="container">${listValue}</p>
-				<a class="dis" href="#">delete</a>
+				<p class="container">${listValue.message}</p>
+				<a class="dis" href="/SubscriberModel/deleteMessage/${listValue.channel_name}/${listValue.channel_id}/${listValue.notification_id}.html">delete</a>
 			</c:forEach>
 		</c:if>
 

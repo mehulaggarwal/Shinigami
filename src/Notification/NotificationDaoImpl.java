@@ -9,6 +9,8 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import Subscribe.MsgNotifiId;
+
 @Repository("notificationDao")
 public class NotificationDaoImpl implements NotificationDao{
 
@@ -38,16 +40,11 @@ public class NotificationDaoImpl implements NotificationDao{
 	}
 
 	@Override
-	public List<String> getMessages(int channel_id) {
+	public List<PostMessage> getMessages(int channel_id) {
 		Query query=getSession().getNamedQuery("getMessages");
 		query.setInteger(0, channel_id);
 		List<PostMessage> messages=(List<PostMessage>)query.list();
-		List<String> list=new ArrayList<String>();
-		for(PostMessage message:messages)
-		{
-		  list.add(message.getMessage());	
-		}
-		return list;
+		return messages;
 	}
 
 	

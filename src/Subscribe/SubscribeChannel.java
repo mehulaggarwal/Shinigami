@@ -37,7 +37,7 @@ public class SubscribeChannel {
 	public ModelAndView getMessages(@PathVariable("channelname")String channelname,@PathVariable("channelid") int channelid)
 	{
 		ModelAndView model=new ModelAndView("messages");
-		List<String> messages=new ArrayList<String>();
+		List<PostMessage> messages=new ArrayList<PostMessage>();
 		messages=notificationService.getMessages(channelid);
 		model.addObject("messages",messages);
 		return model;

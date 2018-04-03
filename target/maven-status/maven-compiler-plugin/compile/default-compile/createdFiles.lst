@@ -9,6 +9,7 @@ Create_Channel\ChannelService.class
 Create_Channel\Channel.class
 login_and_register\User.class
 login_and_register\UserService.class
+Subscribe\MsgNotifiId.class
 Subscribe\Subscriber.class
 Notification\NotificationDao.class
 Subscribe\SubscriberService.class
@@ -18,6 +19,7 @@ Notification\PostMessage.class
 login_and_register\UserDao.class
 Notification\Retain.class
 Subscribe\SubscribeChannel.class
+deletemessages\deletemessage.class
 Create_Channel\ChannelDao.class
 login_and_register\UserDaoImpl.class
 Create_Channel\ChannelDaoImpl.class
