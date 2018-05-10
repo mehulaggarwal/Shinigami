@@ -2,6 +2,10 @@
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+<head>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+<!--  <script src="upload.js"></script> -->
+</head>
 <style>
 body {
 	font-family: Arial, Helvetica, sans-serif;
@@ -111,11 +115,10 @@ hr {
 }
 
 /* Change styles for cancel button and signup button on extra small screens */
- 
-	.cancelbtn, .signupbtn {
-		width: 100%;
-        float: right;
-	    margin-right: 83px;
+.cancelbtn, .signupbtn {
+	width: 100%;
+	float: right;
+	margin-right: 83px;
 }
 
 .upper {
@@ -124,16 +127,17 @@ hr {
 	top: 10%;
 	transform: translate(-50%, 0%);
 }
+
 .center {
 	position: absolute;
 	left: 50%;
 	top: 50%;
 	transform: translate(-50%, -50%);
 }
-.middle
-{
+
+.middle {
 	position: absolute;
-	left:50%;
+	left: 50%;
 }
 </style>
 <body>
@@ -144,16 +148,41 @@ hr {
 	<div id="id01" class="modal">
 		<span onclick="document.getElementById('id01').style.display='none'"
 			class="close" title="Close Modal">&times;</span>
-		<form class="modal-content" action="message.html" method="post">
+		<form class="modal-content" action="message.html" method="post"
+			enctype="multipart/form-data">
 			<div class="container">
 				<h1 align="center">Post Message</h1>
 				<hr>
-                  <textarea rows="20" cols="150" placeholder="Enter Message" name="message"></textarea>
+				<textarea style="width: 90%; min-height: 400px;"
+					placeholder="Enter Message" name="message"></textarea>
+				<p>
+					<label for="image">Choose Image</label>
+				</p>
+				<p>
+					<input name="file" id="fileToUpload" type="file" />
+				</p>
+				<p>
+					<input type="submit" value="Upload">
+				</p>
 				<div class="clearfix">
-					<button type="submit"  style="width: auto;" class="signupbtn">Post</button>
+					<button type="submit" style="width: auto;" class="signupbtn">Post</button>
+
 				</div>
 			</div>
 		</form>
+		<form method="post" action="savefile.html"
+			enctype="multipart/form-data">
+			<p>
+				<label for="image">Choose Image</label>
+			</p>
+			<p>
+				<input name="file" id="fileToUpload" type="file" />
+			</p>
+			<p>
+				<input type="submit" value="Upload">
+			</p>
+		</form>
 	</div>
+
 </body>
 </html>

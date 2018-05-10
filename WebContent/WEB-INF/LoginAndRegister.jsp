@@ -5,6 +5,16 @@
 <!DOCTYPE html>
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
 <style>
 body {
 	font-family: tahoma;
@@ -13,17 +23,18 @@ body {
 * {
 	box-sizing: border-box;
 }
-body{
-  background-color:#8080805c;
+
+body {
+	background-color: #8080805c;
 }
 /* Full-width input fields */
 /* input[type=text], input[type=password] {
-	width: 100%;
-	padding: 15px;
-	margin: 5px 0 22px 0;
-	display: inline-block;
-	border: none;
-	background: #f1f1f1;
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
 } */
 .old {
 	width: 100%;
@@ -44,8 +55,9 @@ body{
 	left: 50%;
 	transform: translateX(-50%);
 }
-.new1{
-position: absolute;
+
+.new1 {
+	position: absolute;
 	width: 40%;
 	padding: 10px;
 	left: 50%;
@@ -62,8 +74,10 @@ input[type=text]:focus, input[type=password]:focus {
 	animation: animatezoom 0.6s
 }
 
-@ -webkit-keyframes animatezoom {
-	from {-webkit-transform: scale(0)}
+@
+-webkit-keyframes animatezoom {
+	from {-webkit-transform: scale(0)
+}
 
 to {
 	-webkit-transform: scale(1)
@@ -95,22 +109,18 @@ img.avatar {
 button {
 	background-color: #4CAF50;
 	color: white;
-	padding: 14px 20px;
+	padding: 8px 16px;
 	margin: 8px 0;
 	border: none;
 	cursor: pointer;
-	width: 100%;
 	opacity: 0.9;
 	border-radius: 12px;
 }
 
 .center {
-	position: absolute;
-	left: 50%;
-	top: 50%;
+	float: right;
 	width: auto;
-	font-size: 18px;
-	transform: translate(-50%, -50%);
+	font-size: 16px;
 }
 
 .upper {
@@ -130,37 +140,40 @@ button:hover {
 
 /* Extra styles for the cancel button */
 .cancelbtn {
-   width: auto;
+	width: auto;
 	padding: 14px 20px;
 	background-color: #f44336;
 }
+
 .cancelbtn1 {
-    width: auto;
-    padding: 10px 18px;
-    background-color: #f44336;
+	width: auto;
+	padding: 10px 18px;
+	background-color: #f44336;
 }
 /* Float cancel and signup buttons and add an equal width */
-.cancelbtn, .signupbtn {
+.cancelbtn {
 	float: left;
-	width: 50%;
 }
-
+.signupbtn {
+  padding: 14px 20px;
+  float: right;
+  width: auto;
+}
 /* Add padding to container elements */
 .container {
 	padding: 16px;
 }
 
 .cenup {
-	position: absolute;
-	left: 50%;
-	top: 30%;
+	float: right;
 	width: auto;
-	font-size: 18px;
-	transform: translate(-50%, -30%);
+	margin-right: 30px;
+	font-size: 16px;
 }
+
 span.psw {
-    float: right;
-    padding-top: 16px;
+	float: right;
+	padding-top: 16px;
 }
 /* The Modal (background) */
 .modal {
@@ -198,12 +211,18 @@ hr {
 	top: 15px;
 	font-size: 40px;
 	font-weight: bold;
-	color: #f1f1f1;
+	color: black;
 }
 
 .close:hover, .close:focus {
 	color: #f44336;
 	cursor: pointer;
+}
+
+.login_button {
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%, 0%);
 }
 
 /* Clear floats */
@@ -217,15 +236,32 @@ hr {
 @media screen and (max-width: 300px) {
 	.cancelbtn, .signupbtn {
 		width: 100%;
-
 	}
 }
-
 </style>
 <body>
 
-	<button onclick="document.getElementById('id02').style.display='block'"
-		class="cenup">Log in</button>
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<h2 style="margin-top: 12.5px; color: skyblue;">Pubsub</h2>
+			</div>
+			<ul class="nav navbar-nav" style="margin-top: 2.5px">
+				<li><a href="#">Home</a></li>
+				<li><a href="#">About</a></li>
+				<li><a href="#">Contact Us</a></li>
+			</ul>
+			<button
+				onclick="document.getElementById('id01').style.display='block'"
+				class="center">Sign Up</button>
+			<button
+				onclick="document.getElementById('id02').style.display='block'"
+				class="cenup">Log in</button>
+
+
+		</div>
+	</nav>
+
 	<div id="id02" class="modal">
 
 		<form class="modal-content animate" action="login.html" method="post">
@@ -242,15 +278,16 @@ hr {
 				<label><b>Enter Password</b></label> <input type="password"
 					placeholder="Enter Password" class="old" name="password" required>
 
-				<button type="submit" >Login</button>
-				<br>
-				<br>
-				<label> <input type="checkbox" checked="checked">
+
+				<br> <label> <input type="checkbox" checked="checked">
 					Remember me
-				</label>
+				</label> <br>
+				<button type="submit" class="login_button">Login</button>
+				<br>
+
 			</div>
 
-			<div class="container" style="background-color: #f1f1f1">
+			<div class="container" >
 				<button type="button"
 					onclick="document.getElementById('id01').style.display='none'"
 					class="cancelbtn1">Cancel</button>
@@ -259,28 +296,25 @@ hr {
 		</form>
 	</div>
 
-	<button onclick="document.getElementById('id01').style.display='block'"
-		class="center">Sign Up</button>
+
 
 	<div id="id01" class="modal animate">
 		<span onclick="document.getElementById('id01').style.display='none'"
 			class="close" title="Close Modal">&times;</span>
-		<form class="modal-content " action="register.html"
-			method="post">
+		<form class="modal-content " action="register.html" method="post">
 			<div class="container">
 				<h1>Sign Up</h1>
 				<p>Please fill in this form to create an account.</p>
 				<hr>
-				<label><b>Your Name</b></label> <input
-					type="text" placeholder="Enter Name" class="old" name="userName"
-					required>
+				<label><b>Your Name</b></label> <input type="text"
+					placeholder="Enter Name" class="old" name="userName" required>
 				<%-- <form:errors path="student1.studentName" cssClass="error" /> --%>
 				<br> <label><b>Enter Email</b></label> <input type="text"
-					placeholder="Enter Email." class="old" name="email"
-					required>
+					placeholder="Enter Email." class="old" name="email" required>
 				<%-- <form:errors path="student1.studentRollNo" cssClass="error" /> --%>
-				<br> <label><b>Enter Password</b></label> <input type="password"
-					placeholder="Enter Password" class="old" name="password" required>
+				<br> <label><b>Enter Password</b></label> <input
+					type="password" placeholder="Enter Password" class="old"
+					name="password" required>
 				<%-- <form:errors path="student1.password" cssClass="error" /> --%>
 				<br> <br> <label> <input type="checkbox"
 					checked="checked" style="margin-bottom: 15px"> Remember me

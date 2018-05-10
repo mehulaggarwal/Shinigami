@@ -1,8 +1,12 @@
 Subscribe\SubscriberDaoImpl.class
 login_and_register\Controller.class
+deletemessages\DeleteService.class
+login_and_register\Controller$1.class
 Notification\NotificationServiceImpl.class
 Notification\NotificationService.class
+deletemessages\DeleteMessages.class
 Subscribe\SubscriberServiceImpl.class
+deletemessages\DeleteServiceImpl.class
 Create_Channel\ChannelServiceImpl.class
 Create_Channel\CreateChannel.class
 Create_Channel\ChannelService.class
@@ -10,7 +14,9 @@ Create_Channel\Channel.class
 login_and_register\User.class
 login_and_register\UserService.class
 Subscribe\MsgNotifiId.class
+deletemessages\DeleteDaoImpl.class
 Subscribe\Subscriber.class
+deletemessages\DeleteDao.class
 Notification\NotificationDao.class
 Subscribe\SubscriberService.class
 Notification\NotificationDaoImpl.class
@@ -19,9 +25,9 @@ Notification\PostMessage.class
 login_and_register\UserDao.class
 Notification\Retain.class
 Subscribe\SubscribeChannel.class
-deletemessages\deletemessage.class
 Create_Channel\ChannelDao.class
 login_and_register\UserDaoImpl.class
+deletemessages\Delete.class
 Create_Channel\ChannelDaoImpl.class
 Notification\Post_Notification.class
 Subscribe\SubscriberDao.class

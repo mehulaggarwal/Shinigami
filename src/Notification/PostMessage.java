@@ -13,20 +13,23 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import org.hibernate.annotations.Cascade;
 import deletemessages.*;
+
 @Entity
-@NamedNativeQuery(name="getMessages",query="select * from post_message where notification_id IN  (select notification_id from post_message left join delete_messages using(Notification_id) where delete_messages.notification_id is NULL order by notification_id desc) and channel_id=?",resultClass=PostMessage.class)
+@NamedNativeQuery(name = "getMessages", query = "select * from post_message where notification_id IN  (select notification_id from post_message left join delete_messages using(Notification_id) where delete_messages.notification_id is NULL ) and channel_id=? order by notification_id desc", resultClass = PostMessage.class)
 @Table(name = "Post_Message")
 public class PostMessage {
-	
-	@Column(length=20000)
+
+	@Column(length = 20000)
 	private String message;
 
-    @Id @GeneratedValue
+	@Id
+	@GeneratedValue
 	private int Notification_id;
-	
+
 	private int channel_id;
-	
-	
+
+	private String Uploaded_file;
+
 	private String channel_name;
 
 	@OneToOne(cascade = CascadeType.ALL)
@@ -73,5 +76,12 @@ public class PostMessage {
 		this.channel_id = channel_id;
 	}
 
+	public String getUploaded_file() {
+		return Uploaded_file;
+	}
+
+	public void setUploaded_file(String uploaded_file) {
+		Uploaded_file = uploaded_file;
+	}
 
 }
